@@ -69,16 +69,16 @@ Crop and/or record a specific region of the screen with:
 ## `wf-recorder`
 
 ```shell
-wf-recorder -g "$(slurp)" -p format='nv12,hwupload' --codec=hevc_vaapi -d /dev/dri/renderD128
+wf-recorder --geometry "$(slurp)" --codec-param format='nv12,hwupload' --codec=hevc_vaapi -d /dev/dri/renderD128
+
+wf-recorder --geometry "$(slurp)" --framerate 30 --codec-param format='nv12,hwupload' --codec=h264_vaapi -d /dev/dri/renderD128 -f "recording_$(date +%F_%H-%M-%S).mp4"
 ```
 
 VAAPI codecs: `h264_vaapi`,`hevc_vaapi`.
 
-Change framerate with `-F fps=[fps]`. 
-
 > VAAPI requires `hwupload,scale_vaapi=nv12` to work.
 
-So to change framerate when using vaapi: `--filter-string fps=30,hwupload,scale_vaapi=nv12`
+To change framerate when using vaapi: `--filter-string fps=30,hwupload,scale_vaapi=nv12`
 
 # Encoding
 
