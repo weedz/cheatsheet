@@ -1,5 +1,9 @@
 # nvim cheatsheet
 
+## Terminal
+
+Exit terminal mode: <kbd>CTRL</kbd> + <kbd>\\</kbd> <kbd>CTRL</kbd>+<kbd>n</kbd>
+
 ## motions/shortcuts
 
 - (n) `f`: Jump to first occurrence of character on current line
@@ -22,4 +26,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
         vim.opt.shiftwidth = 2
     end,
 })
+```
+
+## Disable autoformat
+
+```vim
+:lua vim.g.autoformat = false
 ```
