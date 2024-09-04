@@ -80,6 +80,14 @@ VAAPI codecs: `h264_vaapi`,`hevc_vaapi`.
 
 To change framerate when using vaapi: `--filter-string fps=30,hwupload,scale_vaapi=nv12`
 
+### v4l2loopback
+
+Docs: <https://github.com/ammen99/wf-recorder/wiki#using-wf-recorder-as-camera>
+
+```shell
+wf-recorder --muxer=v4l2 --codec=rawvideo --file=/dev/video4 -x yuv420p -F "scale=1920:1080"
+```
+
 # Encoding
 
 h264 hardware encoding using `ffmpeg` with `kmsgrab`:
