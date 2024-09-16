@@ -1,6 +1,6 @@
 # su
 
-## `machinectl` (systemd)
+## `machinectl` (`systemd-container`)
 
 Handles everthing with paths and other login shell stuff.
 
