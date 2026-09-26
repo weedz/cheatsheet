@@ -35,6 +35,20 @@ modetest | less
 
 Look for "Encoders", map `crtc` to corresponding "encoder" value for the display ("Connector") you want to use.
 
+Output will look something like:
+
+```
+trying to open device '/dev/dri/card1'... done
+opened device `AMD GPU` on driver `amdgpu` (version 3.64.0 at 0)
+Encoders:
+id      crtc    type    possible crtcs  possible clones 
+448     432     TMDS    0x0000000f      0x00000001
+458     437     TMDS    0x0000000f      0x00000002
+465     0       TMDS    0x0000000f      0x00000004
+472     442     TMDS    0x0000000f      0x00000008
+```
+
+Test `crtc` with the `ffmpeg -f kmsgrab -crtc_id [crtc]` command until you find the correct display..
 
 ## Hardware encoding for v4l2loopback
 
