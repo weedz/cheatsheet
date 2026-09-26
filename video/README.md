@@ -46,6 +46,8 @@ sudo setcap cap_sys_admin+ep /usr/bin/ffmpeg
 
 ```shell
 ffmpeg -y -device /dev/dri/card0 -f kmsgrab -framerate 60 -i - -vf 'hwmap=derive_device=vaapi,scale_vaapi=w=1920:h=1080:format=nv12,hwdownload' -vcodec rawvideo -pix_fmt yuv420p -f v4l2 /dev/video2
+# currently working command:
+sudo ffmpeg -framerate 60 -device /dev/dri/card1 -f kmsgrab -crtc_id 437 -i - -vaapi_device /dev/dri/renderD128 -vf 'hwmap=derive_device=vaapi,scale_vaapi=h=1080:w=1920:format=nv12,hwdownload' -vcodec rawvideo -pix_fmt yuv420p -f v4l2 /dev/video2
 
 # Might also need `-device /dev/dri/[card] for this
 ffmpeg -framerate 30 -f kmsgrab -crtc_id 77 -thread_queue_size 64 -i - -vaapi_device /dev/dri/renderD128 -vf 'hwmap=derive_device=vaapi,scale_vaapi=format=nv12,hwdownload' -vcodec rawvideo -pix_fmt yuv420p -bufsize 0 -f_strict experimental -syncpoints none -f v4l2 /dev/video2
